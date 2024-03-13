@@ -1,8 +1,6 @@
 # Hidden directories
 .*/
 
-!.husky
-
 # Nodejs
 node_modules
 
@@ -13,3 +11,4 @@ src/*
 .env
 Todo*
 *.html
+*.tgz
