@@ -4,9 +4,14 @@ const { configFilename } = require('./paths.js');
 // Function to safely delete module from require.cache
 const purgeCache = modulePath => {
    try {
-      delete require.cache[require.resolve(modulePath)];
+      const resolvedPath = require.resolve(modulePath);
+
+      // Check if the module is in the cache before attempting to delete it.
+      if (require.cache[resolvedPath]) {
+         delete require.cache[resolvedPath];
+      }
    } catch (e) {
-      console.error('Error purging module cache:', e);
+      // console.error('Error purging module cache:', e);
    }
 };
 
@@ -37,7 +42,9 @@ module.exports = () => {
          userConfig = userModule.config ? userModule.config : {};
          userPalette = userModule.palette ? userModule.palette : {};
       } catch (err) {
-         console.log('No user config or error loading it:', err.message);
+         // console.log('No user config or error loading it:', err.message);
+         console.log('No user config, using the default...');
+
          // Reset userConfig to an empty object as fallback
          userConfig = {};
       }

@@ -7,7 +7,11 @@ const path = require('path');
 const { configFilename } = require('../app/config/paths.js');
 const writeFile = require('../app/filesystem/write-file.js');
 
-const configFile = path.join(process.cwd(), configFilename);
+// This file is run with `postinstall` script. When `postinstall` is run,
+// cwd() is still this package, not the user's root dir. Therefore:
+const userProjectRoot = process.env.INIT_CWD;
+
+const configFile = path.join(userProjectRoot, configFilename);
 
 const configContent = `// General config
 exports.config = {
