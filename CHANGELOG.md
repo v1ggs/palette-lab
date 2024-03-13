@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/v1ggs/palette-lab/compare/0.2.0...0.2.1) (2024-03-13)
+
+
+### Bug Fixes
+
+* ensure injected JS triggers page reload on first user config change ([c19ab81](https://github.com/v1ggs/palette-lab/commit/c19ab811a1b24e7934709347970bd0cd3ac43027))
+
 ## [0.2.0](https://github.com/v1ggs/palette-lab/compare/0.1.0...0.2.0) (2024-03-13)
 
 
