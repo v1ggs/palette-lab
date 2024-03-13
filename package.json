@@ -1,7 +1,7 @@
 {
    "name": "@v1ggs/palette-lab",
    "description": "Generates perceptually uniform color gradations from base colors in CIELab color space, outputs a ready-to-use SCSS file, and includes a preview server.",
-   "version": "0.0.0",
+   "version": "0.1.0",
    "keywords": [
       "color",
       "palette",
