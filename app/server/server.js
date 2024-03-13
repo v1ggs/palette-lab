@@ -56,16 +56,27 @@ const liveReloadScript = previewUrl => {
 
    return `
 <script type="module">
-  const ws = new WebSocket('ws://${url.hostname}:${url.port}');
-  ws.onmessage = function(message) {
-    console.log("Message received: ", message.data);
-    if (message.data === 'reload') {
-      window.location.reload();
-    }
+  const connectWebSocket = () => {
+    const ws = new WebSocket('ws://${url.hostname}:${url.port}');
+    ws.onmessage = function(message) {
+      console.log("Message received: ", message.data);
+      if (message.data === 'reload') {
+        window.location.reload();
+      }
+    };
+    ws.onopen = function() {
+      console.log("WebSocket connection established.");
+    };
+    ws.onerror = function(error) {
+      console.error("WebSocket Error: ", error);
+    };
+    ws.onclose = function() {
+      console.log("WebSocket connection closed. Attempting to reconnect...");
+      setTimeout(connectWebSocket, 1000); // Attempt to reconnect after 1 second
+    };
   };
-  ws.onerror = function(error) {
-    console.error("WebSocket Error: ", error);
-  };
+
+  connectWebSocket();
 </script>
 `;
 };
@@ -76,6 +87,8 @@ const liveReloadScript = previewUrl => {
 const initServer = (file, previewUrl) => {
    const reloadScript = liveReloadScript(previewUrl);
 
+   // file deepcode ignore NoRateLimitingForExpensiveWebOperation: no DDoS on a local server.
+   // file deepcode ignore HttpToHttps: no need for https for a local preview.
    // Create the server using the preloaded reload script
    const server = http.createServer((req, res) => {
       fs.readFile(file, 'utf8', (err, data) => {
@@ -118,7 +131,6 @@ module.exports = () => {
       console.log(
          `Palette Lab is running on ${url.protocol}//${url.hostname}:${url.port}`,
       );
-
       console.log(`Wait for the page to open...`);
       console.log(`Use CTRL+C to stop.`);
 
