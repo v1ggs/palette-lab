@@ -25,6 +25,7 @@ exports.configFilename = '.palette-lab.js';
 
 exports.devfile = {
    scss: './src/_index.scss',
-   css: './dist/index.css',
-   html: './dist/index.html',
+   // Keep them always here, dont write them in the user's project.
+   css: __dirname + '/../../dist/index.css',
+   html: __dirname + '/../../dist/index.html',
 };
