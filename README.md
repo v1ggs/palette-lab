@@ -1,5 +1,7 @@
 # Palette Lab
 
+![Palette Lab Logo](https://raw.githubusercontent.com/v1ggs/palette-lab/main/assets/palette-lab-logo.svg)
+
 - [Palette Lab](#palette-lab)
 	- [Info](#info)
 	- [Features](#features)
