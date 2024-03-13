@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/v1ggs/palette-lab/compare/0.2.2...0.2.3) (2024-03-13)
+
+
+### Docs
+
+* update logo ([6f15c39](https://github.com/v1ggs/palette-lab/commit/6f15c393c786d624267ddec2cda23221900879ba))
+
 ## [0.2.2](https://github.com/v1ggs/palette-lab/compare/0.2.1...0.2.2) (2024-03-13)
 
 
