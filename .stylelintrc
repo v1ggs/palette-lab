@@ -1,0 +1,15 @@
+{
+	"extends": [
+		"stylelint-config-recommended-scss"
+	],
+	"ignoreFiles": [
+		"**/.*/**/*",
+		"**/node_modules/**/*",
+		"**/vendor/**/*"
+	],
+	"rules": {
+		"no-descending-specificity": null,
+		"scss/comment-no-empty": null,
+		"no-duplicate-selectors": null
+	}
+}

@@ -1,0 +1,25 @@
+// index.scss
+
+// Path to the built palette SCSS file
+@use './scss/palette-lab' as pl;
+
+// You can rename this function in the config.
+$color-primary: pl.color(primary); // base color
+$color-primary-dark: pl.color(primary, -2); // shade 2
+$color-primary-darker: pl.color(primary, -4); // shade 4
+$color-primary-light: pl.color(primary, 2); // tint 2
+$color-accent: pl.color(accent); // base color
+$color-accent-dark: pl.color(accent, -2); // shade 2
+$color-accent-darker: pl.color(accent, -3); // shade 4
+$color-accent-light: pl.color(accent, 2); // tint 2
+
+.selector-1 {
+   color: $color-primary-light;
+   color: $color-primary;
+   color: $color-primary-dark;
+   color: $color-primary-darker;
+   background-color: $color-accent-light;
+   background-color: $color-accent;
+   background-color: $color-accent-dark;
+   background-color: $color-accent-darker;
+}

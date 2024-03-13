@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# To lint commits before they are created you can use Husky's commit-msg hook.
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx --no -- commitlint --edit ${1}

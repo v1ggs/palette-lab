@@ -1,0 +1,15 @@
+# Hidden directories
+.*/
+
+!.husky
+
+# Nodejs
+node_modules
+
+# Project
+dist
+src/*
+!src/_index.scss
+.env
+Todo*
+*.html
